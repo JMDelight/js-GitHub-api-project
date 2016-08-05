@@ -1,12 +1,21 @@
 var GitHubUsers = require('./../js/repository.js').repositoryModule;
-var gitHubUsers = new GitHubUsers();
+var gitHubUsersObject = new GitHubUsers();
 
 var displayAllRepositories = function(array) {
   $(".results").empty();
   array.forEach(function(item) {
-    $(".results").append("<li>" + item.name + " | " + item.description);
+    // if(item.description === null || item.description === "")
+    // {
+    //   $(".results").append("<li>" + item.name + " | No description was given.");
+    // } else {
+    //   $(".results").append("<li>" + item.name + " | " + item.description);
+    // }
     console.log(item.name + " | " + item.description);
   });
+};
+
+var displayAvatar = function(response) {
+  $(".avatar").append("<img src=https://avatars.githubusercontent.com/u/" + response.id + " alt='the entered GitHub users profile picture'>");
 };
 
 $(document).ready(function() {
@@ -14,7 +23,9 @@ $(document).ready(function() {
     event.preventDefault();
     var nameToLookUp = $("#user-name").val();
     console.log(nameToLookUp);
-    gitHubUsers.getRepos(nameToLookUp, displayAllRepositories);
+    gitHubUsersObject.getRepos(nameToLookUp, displayAllRepositories);
+    gitHubUsersObject.getInfo(nameToLookUp, displayAvatar);
+
   });
-  gitHubUsers.getRepos("JMDelight");
+  gitHubUsersObject.getRepos("JMDelight");
 });
