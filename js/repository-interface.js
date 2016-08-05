@@ -1,10 +1,6 @@
-var apiKey = require('./../.env').apiKey;
-
+var GitHubUsers = require('./../js/repository.js').repositoryModule;
+var gitHubUsers = new GitHubUsers();
 
 $(document).ready(function() {
-  $.get('https://api.github.com/users/daneden?access_token=' + apiKey).then(function(response){
-    console.log(JSON.stringify(response));
-  }).fail(function(error){
-    console.log(error.responseJSON.message);
-  });
+  gitHubUsers.getRepos("JMDelight");
 });
