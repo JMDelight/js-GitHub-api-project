@@ -30,6 +30,5 @@ $(document).ready(function() {
     var nameToLookUp = $("#user-name").val();
     gitHubUsersObject.currentPage = 1;
     gitHubUsersObject.getInfo(nameToLookUp, displayAvatar, getRepositories);
-    // gitHubUsersObject.getRepos(nameToLookUp, displayAllRepositories);
   });
 });
