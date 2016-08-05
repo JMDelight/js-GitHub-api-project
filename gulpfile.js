@@ -20,7 +20,6 @@ var lib = require('bower-files')({
 var browserSync = require('browser-sync').create();
 var buildProduction = utilities.env.production;
 
-
 gulp.task("build", ['clean'], function(){
   if (buildProduction) {
     gulp.start('minifyScripts');
@@ -37,7 +36,6 @@ gulp.task('serve', function() {
       index: "index.html"
     }
   });
-
   gulp.watch(['js/*.js'], ['jsBuild']);
   gulp.watch(['bower.json'], ['bowerBuild']);
   gulp.watch(['*.html'], ['htmlBuild']);

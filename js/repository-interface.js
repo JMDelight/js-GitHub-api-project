@@ -10,7 +10,6 @@ var displayAllRepositories = function(array) {
     } else {
       $(".results").append("<li>" + item.name + " | " + item.description);
     }
-    console.log(item.name + " | " + item.description);
   });
 };
 
@@ -22,9 +21,7 @@ $(document).ready(function() {
   $("#user-lookup").submit(function(event) {
     event.preventDefault();
     var nameToLookUp = $("#user-name").val();
-    console.log(nameToLookUp);
     gitHubUsersObject.getRepos(nameToLookUp, displayAllRepositories);
     gitHubUsersObject.getInfo(nameToLookUp, displayAvatar);
-
   });
 });

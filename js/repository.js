@@ -19,12 +19,4 @@ GitHubUsers.prototype.getRepos = function(username, displayFunction) {
   });
 };
 
-// GitHubUsers.prototype.getAvatar = function(username) {
-//   $.get('https://api.github.com/users/' + username + '?access_token=' + apiKey).then(function(response){
-//     // 'https://avatars.githubusercontent.com/u/' + response.id
-//   }).fail(function(error){
-//     console.log(error.responseJSON.message);
-//   });
-// };
-
 exports.repositoryModule = GitHubUsers;
